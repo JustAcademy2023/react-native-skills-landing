@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>React Native Skills for Beginners: A Practical Guide</title>
+<meta name="description" content="Learn react native skills from JavaScript basics to Expo and Firebase, with a clear beginner roadmap, courses and guides from JustAcademy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Bricolage+Grotesque:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#111;--paper:#fff8e7;--pink:#ff5fa2;--lime:#b6f23c;--sky:#5cc8ff;--sun:#ffd23f;--vio:#8b5cf6;--r:18px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;overflow-x:hidden;
+background-image:radial-gradient(#11111820 1.4px,transparent 1.4px);background-size:22px 22px}
+h1,h2,h3{font-family:'Bricolage Grotesque','Space Grotesk',sans-serif;line-height:1.05}
+a{color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+.box{border:3px solid var(--ink);border-radius:var(--r);box-shadow:6px 6px 0 var(--ink);background:#fff;transition:.18s}
+a.box:hover,.btn:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ink)}
+header{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:3px solid var(--ink)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:66px;gap:12px}
+.logo{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:1.25rem;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo i{width:30px;height:30px;background:var(--pink);border:3px solid var(--ink);border-radius:9px;display:inline-block;transform:rotate(-8deg)}
+nav{display:flex;gap:6px;flex-wrap:wrap}
+nav a{text-decoration:none;font-weight:700;padding:6px 12px;border-radius:99px;font-size:.95rem}
+nav a:hover{background:var(--lime)}
+.btn{display:inline-block;text-decoration:none;font-weight:700;padding:13px 24px;border:3px solid var(--ink);border-radius:99px;box-shadow:5px 5px 0 var(--ink);background:var(--sun);transition:.18s}
+.btn.alt{background:#fff}
+.hero{padding:64px 0 40px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.tag{display:inline-block;background:var(--lime);border:3px solid var(--ink);border-radius:99px;padding:4px 16px;font-weight:700;transform:rotate(-2deg);margin-bottom:18px}
+h1{font-size:clamp(2.5rem,6vw,4.6rem);font-weight:800;letter-spacing:-1.5px}
+h1 span{background:var(--pink);padding:0 10px;border-radius:12px;display:inline-block;transform:rotate(-1.5deg);border:3px solid var(--ink)}
+.hero p{font-size:1.15rem;margin:22px 0 28px;max-width:540px}
+.ctas{display:flex;gap:16px;flex-wrap:wrap}
+.stage{position:relative;height:460px;display:grid;place-items:center}
+.phone{width:230px;height:430px;background:var(--ink);border-radius:36px;padding:12px;transform:rotate(6deg);box-shadow:10px 10px 0 var(--vio);animation:bob 4s ease-in-out infinite}
+.screen{height:100%;background:linear-gradient(160deg,var(--sky),var(--lime));border-radius:26px;padding:22px 16px;display:flex;flex-direction:column;gap:12px;overflow:hidden}
+.screen b{font-family:'Bricolage Grotesque',sans-serif;font-size:1.3rem}
+.screen .c{background:#fff;border:2px solid var(--ink);border-radius:14px;padding:10px;font-size:.85rem;font-weight:700}
+.screen .c:nth-child(3){background:var(--sun)}.screen .c:nth-child(4){background:var(--pink)}
+@keyframes bob{50%{transform:rotate(3deg) translateY(-14px)}}
+.sticker{position:absolute;padding:8px 14px;border:3px solid var(--ink);border-radius:14px;font-weight:700;box-shadow:4px 4px 0 var(--ink);animation:bob 5s ease-in-out infinite}
+.s1{top:30px;left:0;background:var(--sun);transform:rotate(-8deg)}
+.s2{bottom:50px;right:-4px;background:var(--pink);animation-delay:-2s}
+.s3{bottom:12px;left:14px;background:var(--lime);animation-delay:-3s}
+.marq{border-block:3px solid var(--ink);background:var(--ink);color:var(--paper);overflow:hidden;white-space:nowrap;padding:12px 0;margin:30px 0}
+.marq div{display:inline-block;animation:slide 26s linear infinite;font-weight:700;font-size:1.1rem}
+@keyframes slide{to{transform:translateX(-50%)}}
+section{padding:56px 0}
+.head{max-width:680px;margin-bottom:34px}
+.head h2{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800}
+.head p{margin-top:12px;font-size:1.08rem}
+.grid{display:grid;gap:24px}
+.g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{padding:26px}
+.card .n{display:inline-grid;place-items:center;width:44px;height:44px;border:3px solid var(--ink);border-radius:12px;font-weight:800;margin-bottom:14px}
+.card h3{font-size:1.35rem;margin-bottom:8px}
+.card p{font-size:.98rem}
+.road{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));counter-reset:s}
+.road .box{padding:24px;position:relative}
+.road .box::before{counter-increment:s;content:"Phase " counter(s);position:absolute;top:-16px;left:18px;background:var(--ink);color:#fff;padding:3px 14px;border-radius:99px;font-weight:700;font-size:.85rem}
+.road h3{margin:8px 0}
+.link{display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;padding:24px;min-height:190px}
+.link small{font-weight:700;text-transform:uppercase;letter-spacing:1px}
+.link h3{font-size:1.3rem;margin:8px 0 14px}
+.link span{font-weight:700}
+.band{background:var(--vio);color:#fff;border-block:3px solid var(--ink)}
+.cta{text-align:center;padding:60px 24px;background:var(--sun)}
+.cta h2{font-size:clamp(2rem,5vw,3.4rem);margin-bottom:14px}
+.cta .ctas{justify-content:center;margin-top:22px}
+footer{background:var(--ink);color:var(--paper);padding:44px 0 26px;margin-top:60px}
+.fgrid{display:grid;gap:30px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+footer h4{margin-bottom:10px;color:var(--lime)}
+footer a{display:block;text-decoration:none;padding:3px 0;opacity:.9}
+footer a:hover{color:var(--sun);opacity:1}
+.copy{margin-top:28px;padding-top:18px;border-top:1px solid #ffffff30;font-size:.9rem;opacity:.75}
+.rv{opacity:0;transform:translateY(26px);transition:.6s}.rv.in{opacity:1;transform:none}
+@media(max-width:860px){.hero{grid-template-columns:1fr;padding-top:36px}.stage{height:400px}nav{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="logo" href="#top"><i></i>RN Skills Lab</a>
+<nav><a href="#skills">Skills</a><a href="#roadmap">Roadmap</a><a href="#courses">Courses</a><a href="#reads">Reads</a></nav>
+<a class="btn" href="https://www.justacademy.co/register-for-course-demo" target="_blank" rel="noopener">Free Demo</a>
+</div></header>
+
+<main id="top">
+<div class="wrap hero">
+<div>
+<span class="tag">Beginner friendly guide</span>
+<h1>React Native <span>skills</span> that get you hired</h1>
+<p>One JavaScript codebase, two app stores. Here is the practical path from your first screen to a real react native app, minus the confusing detours.</p>
+<div class="ctas">
+<a class="btn" href="https://www.justacademy.co/blog-detail/react-native-developer-skills-complete-guide-for-beginners" target="_blank" rel="noopener">Read the full guide</a>
+<a class="btn alt" href="https://www.justacademy.co/course-detail/mumbai/react-native-training-in-mumbai" target="_blank" rel="noopener">See the course</a>
+</div></div>
+<div class="stage" aria-hidden="true">
+<div class="phone"><div class="screen"><b>My First App</b><div class="c">Home screen ready</div><div class="c">Firebase login works</div><div class="c">Ships to Android and iOS</div></div></div>
+<span class="sticker s1">JavaScript</span><span class="sticker s2">Expo</span><span class="sticker s3">Firebase</span>
+</div></div>
+
+<div class="marq" aria-hidden="true"><div>JavaScript &nbsp;★&nbsp; React &nbsp;★&nbsp; Expo &nbsp;★&nbsp; Flexbox UI &nbsp;★&nbsp; Redux Toolkit &nbsp;★&nbsp; Navigation &nbsp;★&nbsp; Firebase &nbsp;★&nbsp; MongoDB &nbsp;★&nbsp; Android &nbsp;★&nbsp; iOS &nbsp;★&nbsp; JavaScript &nbsp;★&nbsp; React &nbsp;★&nbsp; Expo &nbsp;★&nbsp; Flexbox UI &nbsp;★&nbsp; Redux Toolkit &nbsp;★&nbsp; Navigation &nbsp;★&nbsp; Firebase &nbsp;★&nbsp; MongoDB &nbsp;★&nbsp; Android &nbsp;★&nbsp; iOS &nbsp;★&nbsp;</div></div>
+
+<section id="skills"><div class="wrap">
+<div class="head rv"><h2>Six skills, no fluff</h2><p>Master these and most job descriptions for a react developer start to look friendly.</p></div>
+<div class="grid g3">
+<div class="box card rv"><span class="n" style="background:var(--sun)">1</span><h3>Modern JavaScript</h3><p>Promises, async await, arrays and objects. The grammar behind every screen you will build.</p></div>
+<div class="box card rv"><span class="n" style="background:var(--pink)">2</span><h3>React thinking</h3><p>Components, props and hooks. The same ideas power react and react native.</p></div>
+<div class="box card rv"><span class="n" style="background:var(--lime)">3</span><h3>Expo and setup</h3><p>Create a project, scan a QR code and see your app on a real phone in minutes.</p></div>
+<div class="box card rv"><span class="n" style="background:var(--sky)">4</span><h3>UI with flexbox</h3><p>Views, lists, forms and spacing that feels good under a thumb on any screen size.</p></div>
+<div class="box card rv"><span class="n" style="background:var(--vio);color:#fff">5</span><h3>State and data</h3><p>Hooks, context, Redux Toolkit when needed, plus APIs, Firebase and MongoDB backends.</p></div>
+<div class="box card rv"><span class="n" style="background:var(--sun)">6</span><h3>Shipping apps</h3><p>Signed builds, store listings and testing on real Android and iOS devices.</p></div>
+</div></div></section>
+
+<section id="roadmap" class="band"><div class="wrap">
+<div class="head rv"><h2>Your first six months</h2><p>A calm plan you can repeat, pause and pick up again.</p></div>
+<div class="road">
+<div class="box rv" style="color:var(--ink)"><h3>Months 1 and 2</h3><p>JavaScript, Git and core React. Build small web projects until components feel natural.</p></div>
+<div class="box rv" style="color:var(--ink)"><h3>Months 3 and 4</h3><p>Expo, navigation, APIs and storage. Finish two small mobile apps from start to end.</p></div>
+<div class="box rv" style="color:var(--ink)"><h3>Months 5 and 6</h3><p>State tools, Firebase or Node, authentication and real store builds for your portfolio.</p></div>
+</div></div></section>
+
+<section id="courses"><div class="wrap">
+<div class="head rv"><h2>Pick your mobile path</h2><p>Classroom courses in Mumbai for every direction you might take next.</p></div>
+<div class="grid g4">
+<a class="box link rv" style="background:var(--sky)" href="https://www.justacademy.co/course-detail/mumbai/react-native-training-in-mumbai" target="_blank" rel="noopener"><div><small>Course</small><h3>React Native Training</h3></div><span>Explore course →</span></a>
+<a class="box link rv" style="background:var(--lime)" href="https://www.justacademy.co/course-detail/mumbai/android-app-development-in-mumbai" target="_blank" rel="noopener"><div><small>Course</small><h3>Android App Development</h3></div><span>Explore course →</span></a>
+<a class="box link rv" style="background:var(--pink)" href="https://www.justacademy.co/course-detail/mumbai/ios-training-in-mumbai" target="_blank" rel="noopener"><div><small>Course</small><h3>iOS Training</h3></div><span>Explore course →</span></a>
+<a class="box link rv" style="background:var(--sun)" href="https://www.justacademy.co/course-detail/mumbai/flutter-training-in-mumbai" target="_blank" rel="noopener"><div><small>Course</small><h3>Flutter Training</h3></div><span>Explore course →</span></a>
+</div></div></section>
+
+<section id="reads"><div class="wrap">
+<div class="head rv"><h2>Keep reading</h2><p>Deeper guides for the questions every beginner ends up asking.</p></div>
+<div class="grid g3">
+<a class="box link rv" href="https://www.justacademy.co/blog-detail/react-native-developer-skills-complete-guide-for-beginners" target="_blank" rel="noopener"><div><small>Start here</small><h3>React Native Developer Skills: Complete Guide for Beginners</h3></div><span>Read guide →</span></a>
+<a class="box link rv" href="https://www.justacademy.co/blog-detail/flutter-vs-native-android-vs-ios-which-mobile-development-path-should-you-choose" target="_blank" rel="noopener"><div><small>Compare</small><h3>Flutter vs Native Android vs iOS: Which Path to Choose</h3></div><span>Read guide →</span></a>
+<a class="box link rv" href="https://www.justacademy.co/blog-detail/mobile-app-development-career-opportunities-in-india-2026" target="_blank" rel="noopener"><div><small>Careers</small><h3>Mobile App Development Career Opportunities in India 2026</h3></div><span>Read guide →</span></a>
+<a class="box link rv" href="https://www.justacademy.co/blog-detail/ios-developer-roadmap-2026-learn-swift-xcode-app-development" target="_blank" rel="noopener"><div><small>Roadmap</small><h3>iOS Developer Roadmap 2026: Swift and Xcode</h3></div><span>Read guide →</span></a>
+<a class="box link rv" href="https://www.justacademy.co/blog-detail/android-app-development-career-guide-how-to-become-an-android-developer" target="_blank" rel="noopener"><div><small>Career guide</small><h3>How to Become an Android Developer</h3></div><span>Read guide →</span></a>
+</div></div></section>
+
+<div class="wrap"><div class="box cta rv">
+<h2>Ready to build your first app?</h2>
+<p>Sit in on a live class first. No pressure, no commitment.</p>
+<div class="ctas">
+<a class="btn alt" href="https://www.justacademy.co/register-for-course-demo" target="_blank" rel="noopener">Book a free demo</a>
+<a class="btn" href="https://www.justacademy.co/course-detail/mumbai/react-native-training-in-mumbai" target="_blank" rel="noopener">View React Native course</a>
+</div></div></div>
+</main>
+
+<footer><div class="wrap">
+<div class="fgrid">
+<div><h4>RN Skills Lab</h4><p>A friendly beginner guide to react native skills, powered by resources from JustAcademy.</p></div>
+<div><h4>Courses</h4>
+<a href="https://www.justacademy.co/course-detail/mumbai/react-native-training-in-mumbai" target="_blank" rel="noopener">React Native Training</a>
+<a href="https://www.justacademy.co/course-detail/mumbai/android-app-development-in-mumbai" target="_blank" rel="noopener">Android App Development</a>
+<a href="https://www.justacademy.co/course-detail/mumbai/ios-training-in-mumbai" target="_blank" rel="noopener">iOS Training</a>
+<a href="https://www.justacademy.co/course-detail/mumbai/flutter-training-in-mumbai" target="_blank" rel="noopener">Flutter Training</a></div>
+<div><h4>Guides</h4>
+<a href="https://www.justacademy.co/blog-detail/react-native-developer-skills-complete-guide-for-beginners" target="_blank" rel="noopener">React Native Skills Guide</a>
+<a href="https://www.justacademy.co/blog-detail/flutter-vs-native-android-vs-ios-which-mobile-development-path-should-you-choose" target="_blank" rel="noopener">Flutter vs Native</a>
+<a href="https://www.justacademy.co/blog-detail/mobile-app-development-career-opportunities-in-india-2026" target="_blank" rel="noopener">Career Opportunities 2026</a>
+<a href="https://www.justacademy.co/blog-detail/ios-developer-roadmap-2026-learn-swift-xcode-app-development" target="_blank" rel="noopener">iOS Roadmap 2026</a>
+<a href="https://www.justacademy.co/blog-detail/android-app-development-career-guide-how-to-become-an-android-developer" target="_blank" rel="noopener">Android Career Guide</a></div>
+<div><h4>Get started</h4>
+<a href="https://www.justacademy.co/register-for-course-demo" target="_blank" rel="noopener">Free Demo</a>
+<a href="https://www.justacademy.co/download-general-brochure" target="_blank" rel="noopener">Download Brochure</a></div>
+</div>
+<div class="copy">Educational landing page. Courses and guides belong to JustAcademy.</div>
+</div></footer>
+
+<script>
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
